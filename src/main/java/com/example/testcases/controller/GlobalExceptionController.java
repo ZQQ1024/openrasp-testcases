@@ -2,7 +2,6 @@ package com.example.testcases.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
@@ -10,7 +9,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 //@ControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptionController {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleAllExceptions(Exception ex, WebRequest request) {
         // 将堆栈信息转换为字符串

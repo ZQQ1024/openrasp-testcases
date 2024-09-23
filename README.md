@@ -6,7 +6,7 @@
 
 ## 项目说明
 项目特意编写了以下几种场景漏洞代码等：
-- 展示用于信息：SQL注入漏洞，`GET http://localhost:9999/api/vulns/sqli/users?id=1`
+- 展示用户信息：SQL注入漏洞，`GET http://localhost:9999/api/vulns/sqli/users?id=1`
 - 执行ping命令并展示结果：命令注入，`GET http://localhost:9999/api/vulns/cmd/ping?address=8.8.8.8`
 - 返回对应网络资源：SSRF，`GET http://localhost:9999/api/vulns/ssrf?url=http://localhost:9999`
 - 上传序列化文件，解析反序列化后的相关信息：序列化相关漏洞，`POST http://localhost:9999/api/vulns/deserialize/upload --form 'file=@cmd_code.ser'`
@@ -21,7 +21,7 @@
 
 ## 官方插件算法覆盖情况
 
-测试用例覆盖了以下官方算法，以下算法具体产看[官方插件](https://github.com/baidu/openrasp/blob/master/plugins/official/plugin.js)：
+测试用例覆盖了以下官方算法，算法具体可参看[官方插件](https://github.com/baidu/openrasp/blob/master/plugins/official/plugin.js)：
 - SQL注入：
     - 1-sql_userinput
     - 2-sql_policy
@@ -74,3 +74,5 @@
     - 1-deserialization_blacklist
 - JNDI相关
     - 1-jndi_disable_all 
+- 信息泄漏
+    - 1-response_dataLeak
