@@ -2,7 +2,7 @@
 
 较官方测试用例 https://github.com/baidu-security/openrasp-testcases 作出以下改变：
 - 针对[官方插件](https://github.com/baidu/openrasp/blob/master/plugins/official/plugin.js)中的每一个算法提供相应测试方法（Apifox/Postman可以导入`rasp.openapi.json`使用）
-- 源码非JSP形式
+- 只针对java语言，源码非JSP形式
 
 ## 项目说明
 项目特意编写了以下几种场景漏洞代码等：
@@ -18,6 +18,8 @@
 - `file_write.ser`：文件写入
 
 具体可以参看`MaliciousObjectCreator`修改生成其他payload
+
+`fileUpload`相关请求上传的文件，手动生成修改文件后缀为`jsp/html/exe`即可
 
 ## 官方插件算法覆盖情况
 
