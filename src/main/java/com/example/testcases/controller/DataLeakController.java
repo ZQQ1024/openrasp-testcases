@@ -36,6 +36,6 @@ public class DataLeakController {
     private String generateBankCard() {
         // 生成假的16位银行卡号，不保证符合校验规则
 //        return RandomStringUtils.randomNumeric(16);
-        return "6222028762454542483";
+        return "6222028762454542";
     }
 }

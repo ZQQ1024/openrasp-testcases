@@ -76,6 +76,11 @@ public class FileController {
                 }
             }
 
+            // 如果目标文件已存在，则删除
+            if (Files.exists(targetFilePath)) {
+                Files.delete(targetFilePath);
+            }
+
             // 将文件存储到临时目录
             Path tempFilePath = Paths.get(System.getProperty("java.io.tmpdir"), fileItem.getName());
             Files.write(tempFilePath, fileItem.get());
