@@ -19,7 +19,7 @@
 
 具体可以参看`MaliciousObjectCreator`修改生成其他payload
 
-`fileUpload`相关请求上传的文件，手动生成修改文件后缀为`jsp/html/exe`即可
+`fileUpload`相关请求上传的文件，手动生成修改文件后缀为`jsp/html/exe`，同时注意dst修改为web服务器的appBase
 
 ## 官方插件算法覆盖情况
 
@@ -78,3 +78,5 @@
     - 1-jndi_disable_all 
 - 信息泄漏
     - 1-response_dataLeak
+- 类库加载
+    - 1-loadLibrary_unc(只支持windows环境) 
