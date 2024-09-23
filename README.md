@@ -12,6 +12,8 @@
 - 上传序列化文件，解析反序列化后的相关信息：序列化相关漏洞，`POST http://localhost:9999/api/vulns/deserialize/upload --form 'file=@cmd_code.ser'`
 - ...
 
+---
+
 相关反序列化payload已经提前生成，通过`POST http://localhost:9999/api/vulns/deserialize/upload`上传后会触发服务器端不同行为：
 - `cmd_code.ser`：命令执行
 - `directory_list.ser`：目录遍历
@@ -19,7 +21,34 @@
 
 具体可以参看`MaliciousObjectCreator`修改生成其他payload
 
+---
+
 `fileUpload`相关请求上传的文件，手动生成修改文件后缀为`jsp/html/exe`，同时注意dst修改为web服务器的appBase
+
+---
+
+SQL注入相关测试需要链接数据库，使用如下命令创建数据并插入数据
+```sql
+create database `rasp-testcases`;
+
+use `rasp-testcases`;
+           
+CREATE TABLE users (
+                     id VARCHAR(255) PRIMARY KEY,
+                     name VARCHAR(255) NOT NULL,
+                     email VARCHAR(255) UNIQUE NOT NULL
+);
+
+INSERT INTO users (id, name, email)
+VALUES ('1', 'John Doe', 'johndoe@example.com'),
+       ('2', 'Jane Smith', 'janesmith@example.com');
+```
+并设置以下环境变量启动程序
+```bash
+export SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/rasp-testcases
+export SPRING_DATASOURCE_USERNAME=root
+export SPRING_DATASOURCE_PASSWORD=123456
+```
 
 ## 官方插件算法覆盖情况
 
