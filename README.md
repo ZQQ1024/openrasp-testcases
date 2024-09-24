@@ -102,7 +102,7 @@ export SPRING_DATASOURCE_PASSWORD=123456
 - 反序列化
     - 1-deserialization_blacklist
 - DNS相关
-    - 1-deserialization_blacklist
+    - 1-dns_blacklist
 - JNDI相关
     - 1-jndi_disable_all 
 - 信息泄漏
